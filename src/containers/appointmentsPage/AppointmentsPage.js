@@ -4,21 +4,16 @@ import { TileList } from '../../components/tileList/TileList';
 
 export const AppointmentsPage = (props) => {
   const [title, setTitle] = useState('');
-  const [contact,  setContact] = useState('');
+  const [contact,  setContact] = useState(
+    props.contacts.length > 0 ? props.contacts[0].name : ''
+  );
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const appointment = {
-      title: title,
-      contact: contact,
-      date: date,
-      time: time
-    }
-   
-    props.addApt(appointment);
+    props.addApt(title, contact, date, time);
 
     setTitle('');
     setContact('');
@@ -32,6 +27,7 @@ export const AppointmentsPage = (props) => {
       <section>
         <h2>Add Appointment</h2>
         <AppointmentForm
+        contacts={props.contacts}
         title={title}
         setTitle={setTitle}
         contact={contact}
@@ -40,7 +36,7 @@ export const AppointmentsPage = (props) => {
         setDate={setDate}
         time={time}
         setTime={setTime}
-        onSubmit={handleSubmit} />
+        handleSubmit={handleSubmit} />
       </section>
       <hr />
       <section>

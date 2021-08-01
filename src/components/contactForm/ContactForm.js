@@ -48,7 +48,7 @@ export const ContactForm = ({
       </label>
       <br />
 
-      <input type='submit' name='submit' />
+      <input type='submit' value='Add Contact' />
     </form>
   );
 };

@@ -15,21 +15,27 @@ function App() {
   };
 
 
-  const addContact = () => {
-    setContacts({...contacts, newContact: {
-      name: '',
-      phoneNumber: '',
-      email: ''
-    }})
+  const addContact = (name, phone, email) => {
+    setContacts([
+      ...contacts,
+      {
+        name: name,
+        phone: phone,
+        email: email
+      },
+    ])
   }
 
-  const addApt = () => {
-    setApts({...apts, newApt: {
-      title: '',
-      contact: '',
-      date: '',
-      time: ''
-    }})
+  const addApt = (title, contact, date, time) => {
+    setApts([
+      ...apts,
+      {
+        title: title,
+        contact: contact,
+        date: date,
+        time: time
+      },
+    ])
   }
 
   return (

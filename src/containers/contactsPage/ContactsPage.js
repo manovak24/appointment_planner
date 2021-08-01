@@ -14,14 +14,8 @@ export const ContactsPage = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const contact = {
-      name: name,
-      phone: phone,
-      email: email
-    };
-
     if(!duplicate) {
-      props.addContact(contact)
+      props.addContact(name, phone, email)
       setName('');
       setPhone('');
       setEmail('');
