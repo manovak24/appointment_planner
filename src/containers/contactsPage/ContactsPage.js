@@ -5,7 +5,7 @@ import { TileList } from '../../components/tileList/TileList';
 export const ContactsPage = (props) => {
 
   const [name, setName] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [duplicate, setDuplicate] = useState(null);
 
@@ -16,14 +16,14 @@ export const ContactsPage = (props) => {
     e.preventDefault();
     const contact = {
       name: name,
-      phoneNumber: phoneNumber,
+      phone: phone,
       email: email
     };
 
     if(!duplicate) {
       props.addContact(contact)
       setName('');
-      setPhoneNumber('');
+      setPhone('');
       setEmail('');
     }
 
@@ -59,8 +59,8 @@ export const ContactsPage = (props) => {
         <ContactForm
         name={name}
         setName={setName}
-        phone={phoneNumber}
-        setPhone={setPhoneNumber}
+        phone={phone}
+        setPhone={setPhone}
         email={email}
         setEmail={setEmail}
         handleSubmit={handleSubmit} />
