@@ -46,7 +46,7 @@ export const ContactsPage = (props) => {
 
   return (
     <div>
-      <section>
+      <section style={{margin: '1rem'}}>
         <h2>Add Contact</h2>
         {duplicate ? '- Contact Already Exists' : ''}
 

@@ -1,5 +1,7 @@
 import React from "react";
 
+import Button from 'react-bootstrap/Button'
+
 export const ContactForm = ({
   name,
   setName,
@@ -32,6 +34,7 @@ export const ContactForm = ({
           onChange={(e) => setPhone(e.target.value)}
           required
           placeholder='Contact Phone Number (###-###-####)'
+          style={{marginTop: '.2rem'}}
         />
       </label>
       <br />
@@ -44,11 +47,13 @@ export const ContactForm = ({
           onChange={(e) => setEmail(e.target.value)}
           required
           placeholder='Contact Email Address'
+          style={{marginTop: '.2rem'}}
         />
       </label>
       <br />
 
-      <input type='submit' value='Add Contact' />
+      
+      <Button type='submit' style={{marginTop: '1rem'}}>Add Contact</Button>
     </form>
   );
 };

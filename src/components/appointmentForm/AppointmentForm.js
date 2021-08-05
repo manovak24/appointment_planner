@@ -1,6 +1,8 @@
 import React from "react";
 import { ContactPicker } from '../contactPicker/ContactPicker';
 
+import Button from 'react-bootstrap/Button'
+
 export const AppointmentForm = ({
   contacts,
   title,
@@ -69,7 +71,7 @@ export const AppointmentForm = ({
 
       
 
-      <input type='submit' value='Add Appointment' />
+      <Button type='submit' style={{marginTop: '1rem'}}>Add Contact</Button>
     </form>
   );
 };

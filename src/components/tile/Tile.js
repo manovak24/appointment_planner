@@ -4,9 +4,9 @@ import { Card } from "react-bootstrap";
 
 export const Tile = ({ tile }) => {
   return (
-    <div className="tile-container">
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
 
-      <Card>
+      <Card style={{width: '18rem', margin: '1rem'}}>
         <Card.Body>
           <Card.Text>
             {Object.values(tile).map((value, index) => (
