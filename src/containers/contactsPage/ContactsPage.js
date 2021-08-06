@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Swal from "sweetalert2";
 import { ContactForm } from '../../components/contactForm/ContactForm';
 import { TileList } from '../../components/tileList/TileList';
 
@@ -19,6 +20,11 @@ export const ContactsPage = (props) => {
       setName('');
       setPhone('');
       setEmail('');
+    } else if (duplicate) {
+      Swal.fire({
+        title: 'This contact already exists',
+        icon: 'error'
+      })
     }
 
   };
@@ -49,7 +55,6 @@ export const ContactsPage = (props) => {
       <section style={{margin: '1rem'}}>
         <h2>Add Contact</h2>
         {duplicate ? '- Contact Already Exists' : ''}
-
         <ContactForm
         name={name}
         setName={setName}
@@ -62,8 +67,10 @@ export const ContactsPage = (props) => {
       <hr />
       <section>
         <h2>Contacts</h2>
-        <TileList
-        tiles={props.contacts} />
+          <div style={{ height: '20rem', display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <TileList
+            tiles={props.contacts} />
+          </div>
       </section>
     </div>
   );
