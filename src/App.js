@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { Switch, Route, Redirect, NavLink } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { AppointmentsPage } from "./containers/appointmentsPage/AppointmentsPage";
 import { ContactsPage } from "./containers/contactsPage/ContactsPage";
+import HomePage from './containers/HomePage/HomePage';
+import { Nav, Navbar } from "react-bootstrap";
 
 function App() {
  
@@ -13,6 +15,7 @@ function App() {
   const [apts, setApts] = useState([]);
 
   const ROUTES = {
+    HOMEPAGE: '/home',
     CONTACTS: "/contacts",
     APPOINTMENTS: "/appointments",
   };
@@ -44,17 +47,23 @@ function App() {
   return (
     <div className='app-container'>
       <nav className='nav-container'>
-        <NavLink to={ROUTES.CONTACTS} activeClassName="active">
-          Contacts
-        </NavLink>
-        <NavLink to={ROUTES.APPOINTMENTS} activeClassName="active">
-          Appointments
-        </NavLink>
+        <Navbar>
+          <Navbar.Brand href={ROUTES.HOMEPAGE}>Friendly Planner</Navbar.Brand>
+          <Nav.Link href={ROUTES.CONTACTS} activeClassName="active">
+            Contacts
+          </Nav.Link>
+          <Nav.Link href={ROUTES.APPOINTMENTS} activeClassName="active">
+            Appointments
+          </Nav.Link>
+        </Navbar>  
       </nav>
       <main>
         <Switch>
           <Route exact path="/">
-            <Redirect to={ROUTES.CONTACTS} />
+            <Redirect to={ROUTES.HOMEPAGE} />
+          </Route>
+          <Route path={ROUTES.HOMEPAGE}>
+            <HomePage />
           </Route>
           <Route path={ROUTES.CONTACTS}>
             <ContactsPage
